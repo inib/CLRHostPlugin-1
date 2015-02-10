@@ -140,3 +140,58 @@ CLRHostApi::AddImageSourceFactory(CLRObjectRef &clrObjectRef)
     }
 
 }
+
+void CLRHostApi::SetSceneName(const TCHAR * sceneName, bool bPost) {
+
+	OBSSetScene(sceneName, bPost);
+
+}
+
+const TCHAR * CLRHostApi::GetSceneName() {
+	return OBSGetSceneName();
+}
+
+void CLRHostApi::SetDesktopVolume(float val, bool finalValue)
+{
+	OBSSetDesktopVolume(val, finalValue);
+}
+
+float CLRHostApi::GetDesktopVolume()
+{
+	return OBSGetDesktopVolume();
+}
+
+bool CLRHostApi::GetDesktopMuted()
+{
+	return OBSGetDesktopMuted();
+}
+
+void CLRHostApi::ToggleDesktopMute()
+{
+	OBSToggleDesktopMute();
+}
+
+int CLRHostApi::GetSceneCount()
+{
+	XElement* scnList = OBSGetSceneListElement();
+	const DWORD numScn = scnList->NumElements();
+	return numScn;
+}
+
+const TCHAR * CLRHostApi::GetScenes(int numb)
+{
+	XElement* scnList = OBSGetSceneListElement();
+	CTSTR sceneName;
+	if (scnList)
+	{
+		const DWORD numScn = scnList->NumElements();
+		for (DWORD i = 0; i<numScn; i++)
+		{
+			if (i == numb)
+			{
+				sceneName = (scnList->GetElementByID(i))->GetName();
+			}
+		}
+	}
+	return sceneName;
+}

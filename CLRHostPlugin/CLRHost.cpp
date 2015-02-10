@@ -599,3 +599,31 @@ CLRHost::OnStopStream()
         (*i)->OnStopStream();
     }
 }
+
+void CLRHost::OnOBSStatus(bool running, bool streaming, bool recording, bool previewing, bool reconnecting)
+{
+	for (auto i = clrPlugins.begin(); i < clrPlugins.end(); i++) {
+		(*i)->OnOBSStatus(running, streaming, recording, previewing, reconnecting);
+	}
+}
+
+void CLRHost::OnSceneSwitch(CTSTR scene)
+{
+	for (auto i = clrPlugins.begin(); i < clrPlugins.end(); i++) {
+		(*i)->OnSceneSwitch(scene);
+	}
+}
+
+void CLRHost::OnDesktopVolumeChanged(float level, bool muted, bool finalValue)
+{
+	for (auto i = clrPlugins.begin(); i < clrPlugins.end(); i++) {
+		(*i)->OnDesktopVolumeChanged(level, muted, finalValue);
+	}
+}
+
+void CLRHost::OnMicVolumeChanged(float level, bool muted, bool finalValue)
+{
+	for (auto i = clrPlugins.begin(); i < clrPlugins.end(); i++) {
+		(*i)->OnMicVolumeChanged(level, muted, finalValue);
+	}
+}

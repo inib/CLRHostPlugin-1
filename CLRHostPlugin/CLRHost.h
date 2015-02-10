@@ -68,6 +68,10 @@ public:
     void UnloadPlugins();
     void OnStartStream();
     void OnStopStream();
+	void OnOBSStatus(bool running, bool streaming, bool recording, bool previewing, bool reconnecting);
+	void OnSceneSwitch(CTSTR scene);
+	void OnMicVolumeChanged(float level, bool muted, bool finalValue);
+	void OnDesktopVolumeChanged(float level, bool muted, bool finalValue);
 
 public:
     mscorlib::_Type *GetImageSourceType() { return imageSourceType; }

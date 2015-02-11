@@ -81,6 +81,26 @@ void CLRHostPlugin::OnStopStream()
     clrHost->OnStopStream();
 }
 
+void CLRHostPlugin::OnSceneSwitch(CTSTR scene)
+{
+	clrHost->OnSceneSwitch(scene);
+}
+
+void CLRHostPlugin::OnOBSStatus(bool running, bool streaming, bool recording, bool previewing, bool reconnecting)
+{
+	clrHost->OnOBSStatus(running, streaming, recording, previewing, reconnecting);
+}
+
+void CLRHostPlugin::OnMicVolumeChanged(float level, bool muted, bool finalValue)
+{
+	clrHost->OnMicVolumeChanged(level, muted, finalValue);
+}
+
+void CLRHostPlugin::OnDesktopVolumeChanged(float level, bool muted, bool finalValue)
+{
+	clrHost->OnDesktopVolumeChanged(level, muted, finalValue);
+}
+
 bool LoadPlugin()
 {
     if(CLRHostPlugin::instance != NULL) {
@@ -116,6 +136,38 @@ void OnStopStream()
         return;
     }
     CLRHostPlugin::instance->OnStopStream();
+}
+
+void OnOBSStatus(bool running, bool streaming, bool recording, bool previewing, bool reconnecting)
+{
+	if (CLRHostPlugin::instance == NULL) {
+		return;
+	}
+	CLRHostPlugin::instance->OnOBSStatus(running, streaming, recording, previewing, reconnecting);
+}
+
+void OnSceneSwitch(CTSTR scene)
+{
+	if (CLRHostPlugin::instance == NULL) {
+		return;
+	}
+	CLRHostPlugin::instance->OnSceneSwitch(scene);
+}
+
+void OnMicVolumeChanged(float level, bool muted, bool finalValue)
+{
+	if (CLRHostPlugin::instance == NULL) {
+		return;
+	}
+	CLRHostPlugin::instance->OnMicVolumeChanged(level, muted, finalValue);
+}
+
+void OnDesktopVolumeChanged(float level, bool muted, bool finalValue)
+{
+	if (CLRHostPlugin::instance == NULL) {
+		return;
+	}
+	CLRHostPlugin::instance->OnDesktopVolumeChanged(level, muted, finalValue);
 }
 
 CTSTR GetPluginName()

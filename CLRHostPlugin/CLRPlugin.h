@@ -17,6 +17,10 @@ protected:
     mscorlib::_MethodInfo *unloadPluginMethod;
     mscorlib::_MethodInfo *onStartStreamMethod;
     mscorlib::_MethodInfo *onStopStreamMethod;
+	mscorlib::_MethodInfo *onSceneSwitchMethod;
+	mscorlib::_MethodInfo *onOBSStatusMethod;
+	mscorlib::_MethodInfo *onMicVolumeChangedMethod;
+	mscorlib::_MethodInfo *onDesktopVolumeChangedMethod;
     mscorlib::_MethodInfo *getPluginNameMethod;
     mscorlib::_MethodInfo *getPluginDescriptionMethod;
 
@@ -29,6 +33,10 @@ public:
     void UnloadPlugin();
     void OnStartStream();
     void OnStopStream();
+	void OnSceneSwitch(CTSTR scene);
+	void OnOBSStatus(bool running, bool streaming, bool recording, bool previewing, bool reconnecting);
+	void OnMicVolumeChanged(float level, bool muted, bool finalValue);
+	void OnDesktopVolumeChanged(float level, bool muted, bool finalValue);
     std::wstring GetPluginName();
     std::wstring GetPluginDescription();
 };

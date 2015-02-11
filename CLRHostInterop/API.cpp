@@ -76,3 +76,13 @@ void API::ToggleDesktopMute()
 {
 	::API->ToggleDesktopMute();
 }
+
+System::String^ API::GetScenes(int numb)
+{
+	return gcnew System::String(clrHostApi->GetScenes(numb));
+}
+
+int API::GetSceneCount()
+{
+	return clrHostApi->GetSceneCount();
+}

@@ -47,5 +47,13 @@ namespace CLROBS
         System::String^ GetPluginDataPath();
         void SetChangedSettings(bool isChanged);
         int GetMaxFPS();
+		void SetSceneName(System::String^ sceneName, bool bPost);
+		System::String^ GetSceneName();
+		void SetDesktopVolume(float val, bool finalValue);
+		float GetDesktopVolume();
+		bool GetDesktopMuted();
+		void ToggleDesktopMute();
+		System::String^ GetScenes(int numb);
+		int GetSceneCount();
     };
 };

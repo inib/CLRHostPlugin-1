@@ -44,3 +44,35 @@ int API::GetMaxFPS()
 {
     return ::API->GetMaxFPS();
 }
+
+void API::SetSceneName(System::String^ sceneName, bool bPost)
+{
+	TCHAR* unmanagedstring = (TCHAR *)Marshal::StringToHGlobalAuto(sceneName).ToPointer();
+	clrHostApi->SetSceneName(unmanagedstring, bPost);
+	Marshal::FreeHGlobal((System::IntPtr)unmanagedstring);
+}
+
+System::String^ API::GetSceneName()
+{
+	return gcnew System::String(clrHostApi->GetSceneName());
+}
+
+void API::SetDesktopVolume(float value, bool bo)
+{
+	::API->SetDesktopVolume(value, bo);
+}
+
+float API::GetDesktopVolume()
+{
+	return ::API->GetDesktopVolume();
+}
+
+bool API::GetDesktopMuted()
+{
+	return ::API->GetDesktopMuted();
+}
+
+void API::ToggleDesktopMute()
+{
+	::API->ToggleDesktopMute();
+}

@@ -20,9 +20,13 @@ public:
 	CLR_API void SetSceneName(const TCHAR * sceneName, bool bPost);
 	CLR_API const TCHAR * GetSceneName();
 	CLR_API float GetDesktopVolume();
+	CLR_API float GetMicVolume();
 	CLR_API void SetDesktopVolume(float val, bool finalValue);
+	CLR_API void SetMicVolume(float val, bool finalValue);
 	CLR_API bool GetDesktopMuted();
+	CLR_API bool GetMicMuted();
 	CLR_API void ToggleDesktopMute();
+	CLR_API void ToggleMicMute();
 	CLR_API const TCHAR * GetScenes(int numb);
 	CLR_API int GetSceneCount();
 

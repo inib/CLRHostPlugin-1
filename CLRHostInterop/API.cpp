@@ -62,9 +62,19 @@ void API::SetDesktopVolume(float value, bool bo)
 	::API->SetDesktopVolume(value, bo);
 }
 
+void API::SetMicVolume(float value, bool bo)
+{
+	::API->SetMicVolume(value, bo);
+}
+
 float API::GetDesktopVolume()
 {
 	return ::API->GetDesktopVolume();
+}
+
+float API::GetMicVolume()
+{
+	return ::API->GetMicVolume();
 }
 
 bool API::GetDesktopMuted()
@@ -72,9 +82,19 @@ bool API::GetDesktopMuted()
 	return ::API->GetDesktopMuted();
 }
 
+bool API::GetMicMuted()
+{
+	return ::API->GetMicMuted();
+}
+
 void API::ToggleDesktopMute()
 {
 	::API->ToggleDesktopMute();
+}
+
+void API::ToggleMicMute()
+{
+	::API->ToggleMicMute();
 }
 
 System::String^ API::GetScenes(int numb)

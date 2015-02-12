@@ -156,9 +156,19 @@ void CLRHostApi::SetDesktopVolume(float val, bool finalValue)
 	OBSSetDesktopVolume(val, finalValue);
 }
 
+void CLRHostApi::SetMicVolume(float val, bool finalValue)
+{
+	OBSSetMicVolume(val, finalValue);
+}
+
 float CLRHostApi::GetDesktopVolume()
 {
 	return OBSGetDesktopVolume();
+}
+
+float CLRHostApi::GetMicVolume()
+{
+	return OBSGetMicVolume();
 }
 
 bool CLRHostApi::GetDesktopMuted()
@@ -166,9 +176,19 @@ bool CLRHostApi::GetDesktopMuted()
 	return OBSGetDesktopMuted();
 }
 
+bool CLRHostApi::GetMicMuted()
+{
+	return OBSGetMicMuted();
+}
+
 void CLRHostApi::ToggleDesktopMute()
 {
 	OBSToggleDesktopMute();
+}
+
+void CLRHostApi::ToggleMicMute()
+{
+	OBSToggleMicMute();
 }
 
 int CLRHostApi::GetSceneCount()

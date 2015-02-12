@@ -50,9 +50,13 @@ namespace CLROBS
 		void SetSceneName(System::String^ sceneName, bool bPost);
 		System::String^ GetSceneName();
 		void SetDesktopVolume(float val, bool finalValue);
+		void SetMicVolume(float val, bool finalValue);
 		float GetDesktopVolume();
+		float GetMicVolume();
 		bool GetDesktopMuted();
+		bool GetMicMuted();
 		void ToggleDesktopMute();
+		void ToggleMicMute();
 		System::String^ GetScenes(int numb);
 		int GetSceneCount();
     };
